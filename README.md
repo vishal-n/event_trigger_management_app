@@ -13,4 +13,4 @@
 **6.** To run the app in s docker container, ensure docker is running in your machine and run this command: <br>
 **docker-compose up --build**
 
-**7.** The app is deployed here: https://event-trigger-management-app.onrender.com
+**7.** The app is deployed here: https://event-trigger-management-app.onrender.com/docs

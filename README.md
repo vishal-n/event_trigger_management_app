@@ -1,4 +1,7 @@
-**Steps to run the application locally:**
+**The app is deployed here:** https://event-trigger-management-app.onrender.com/docs <br>
+
+
+<br>**Steps to run the application locally:**
 
 **1.** Run the command: git clone git@github.com:vishal-n/event_trigger_management_app.git
 
@@ -15,4 +18,3 @@
 
 **7.** After step 6 is successful, the link to the localhost should be visible here: http://0.0.0.0:8000/docs
 
-**8.** The app is deployed here: https://event-trigger-management-app.onrender.com/docs

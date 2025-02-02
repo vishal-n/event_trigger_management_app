@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: event-trigger-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    autoDeploy: true
+    plan: free
+    envVars:
+      - key: DB_HOST
+        value: localhost
+      - key: DB_NAME
+        value: testdb
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASSWORD
+        value: Bsk2%40stage

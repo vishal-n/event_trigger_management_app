@@ -1,3 +1,4 @@
+import json
 import asyncio
 from fastapi import APIRouter, HTTPException
 from app.models import APITrigger
@@ -12,8 +13,8 @@ async def create_api_trigger(trigger: APITrigger):
     with get_db_connection() as conn:
         with conn.cursor() as cur:
             cur.execute(
-                "INSERT INTO api_triggers (name, endpoint, payload, created_at) VALUES (%s, %s, %s, %s) RETURNING id",
-                (trigger.name, trigger.endpoint, trigger.payload, datetime.utcnow())
+                "INSERT INTO api_triggers (name, endpoint, payload, created_at) VALUES (%s, %s, %s::jsonb, %s) RETURNING id",
+                (trigger.name, trigger.endpoint, json.dumps(trigger.payload), datetime.utcnow())
             )
             trigger_id = cur.fetchone()["id"]
             conn.commit()

@@ -6,10 +6,10 @@ from os import getenv
 
 
 DB_SETTINGS = {
-    "host": getenv("DB_HOST", "localhost"),
-    "database": getenv("DB_NAME", "event_triggers"),
+    "host": getenv("DB_HOST"),
+    "database": getenv("DB_NAME"),
     "user": getenv("DB_USER", "postgres"),
-    "password": getenv("DB_PASSWORD", "password")
+    "password": getenv("DB_PASSWORD")
 }
 
 

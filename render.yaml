@@ -1,12 +1,13 @@
 services:
   - type: web
     name: fastapi-event-triggers
-    runtime: python
+    runtime: docker
     region: oregon
     repo: https://github.com/vishal-n/event_trigger_management_app
     branch: master
+    dockerfilePath: ./Dockerfile
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.event_triggers_app:app --host 0.0.0.0 --port 10000
     envVars:
       - key: DATABASE_URL
-        value: postgresql://test_pg_1vk2_user:NlohnDw5va25sEEtwYzaQv6eMbBLckwm@dpg-cufm5ai3esus73e27ps0-a.oregon-postgres.render.com/test_pg_1vk2
+        sync: false

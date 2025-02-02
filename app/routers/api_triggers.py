@@ -53,7 +53,7 @@ async def execute_api_trigger(trigger_id: int):
 async def update_api_trigger(trigger_id: int, trigger: APITrigger):
     with get_db_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("UPDATE api_triggers SET name = %s, endpoint = %s, payload = %s WHERE id = %s", (trigger.name, trigger.endpoint, trigger.payload, trigger_id))
+            cur.execute("UPDATE api_triggers SET name = %s, endpoint = %s, payload = %s::jsonb WHERE id = %s", (trigger.name, trigger.endpoint, json.dumps(trigger.payload), trigger_id))
             conn.commit()
     return {"message": "API trigger updated"}
 

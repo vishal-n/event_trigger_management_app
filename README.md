@@ -13,4 +13,6 @@
 **6.** To run the app in a docker container, ensure docker is running in your machine and run this command: <br>
 **docker-compose up --build**
 
-**7.** The app is deployed here: https://event-trigger-management-app.onrender.com/docs
+**7.** After step 6 is successful, the link to the localhost should be visible here: http://0.0.0.0:8000/docs
+
+**8.** The app is deployed here: https://event-trigger-management-app.onrender.com/docs

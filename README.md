@@ -18,3 +18,153 @@
 
 **7.** After step 6 is successful, the link to the localhost should be visible here: http://0.0.0.0:8000/docs
 
+
+**8.** Sample API request / response:
+```bash
+API: GET /triggers/scheduled/
+
+Response:
+
+{
+  "scheduled_triggers": [
+    {
+      "id": 1,
+      "name": "test1",
+      "interval_minutes": 10,
+      "fire_in_minutes": 10,
+      "recurring": false,
+      "created_at": "2025-02-02T14:34:58.415939"
+    },
+    {
+      "id": 2,
+      "name": "New schedule",
+      "interval_minutes": 5,
+      "fire_in_minutes": 5,
+      "recurring": false,
+      "created_at": "2025-02-02T16:00:19.716285"
+    }
+  ]
+}
+```
+
+```bash
+API: POST /triggers/scheduled/
+
+Request Body:
+
+{
+  "name": "New schedule",
+  "interval_minutes": 5,
+  "fire_in_minutes": 5,
+  "recurring": false
+}
+
+Response:
+
+{
+  "message": "Scheduled trigger created",
+  "id": 2
+}
+```
+
+```bash
+API: PUT /triggers/scheduled/{trigger_id}
+
+Request Body:
+
+{
+  "name": "test2",
+  "interval_minutes": 10,
+  "fire_in_minutes": 10,
+  "recurring": false
+}
+
+Response:
+
+{
+  "message": "Scheduled trigger updated"
+}
+```
+
+```bash
+API: POST /triggers/scheduled/test/
+
+Response:
+
+{
+  "message": "Test scheduled trigger will fire in 5 minutes."
+}
+```
+
+```bash
+API: POST /triggers/api/
+
+Request Body:
+
+{
+  "name": "webhook auth api",
+  "endpoint": "https://example.com/webhook",
+  "payload": 
+  {
+    "user_id": 123,
+    "action": "purchase"
+  }
+}
+
+Response:
+
+{
+  "message": "API trigger created",
+  "id": 1
+}
+```
+
+```bash
+API: GET /triggers/api/
+
+Response:
+{
+  "api_triggers": 
+  [
+    {
+      "id": 1,
+      "name": "webhook auth api",
+      "endpoint": "https://example.com/webhook",
+      "payload": {
+        "action": "purchase",
+        "user_id": 123
+      },
+      "created_at": "2025-02-02T16:10:52.839818"
+    }
+  ]
+}
+```
+
+```bash
+API: GET /logs/
+
+Response:
+
+{
+  "logs": [
+    {
+      "id": 1,
+      "trigger_id": 2,
+      "executed_at": "2025-02-02T16:05:19.826488",
+      "is_test": false,
+      "trigger_type": "scheduled",
+      "is_archived": false
+    }
+  ]
+}
+```
+
+```bash
+API: GET /logs/?archived=true
+
+Response:
+
+{
+  "logs": []
+}
+```

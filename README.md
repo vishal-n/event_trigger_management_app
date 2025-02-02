@@ -10,7 +10,7 @@
 
 **5.** Once the locahost server has started running, visit this link to refer the API docs and also invoke the APIs: **http://127.0.0.1:8000/docs**
 
-**6.** To run the app in s docker container, ensure docker is running in your machine and run this command: <br>
+**6.** To run the app in a docker container, ensure docker is running in your machine and run this command: <br>
 **docker-compose up --build**
 
 **7.** The app is deployed here: https://event-trigger-management-app.onrender.com/docs

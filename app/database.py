@@ -6,13 +6,6 @@ from os import getenv
 
 DATABASE_URL = "postgresql://test_pg_1vk2_user:NlohnDw5va25sEEtwYzaQv6eMbBLckwm@dpg-cufm5ai3esus73e27ps0-a.oregon-postgres.render.com/test_pg_1vk2"
 
-DB_SETTINGS = {
-    "host": getenv("DB_HOST"),
-    "database": getenv("DB_NAME"),
-    "user": getenv("DB_USER", "postgres"),
-    "password": getenv("DB_PASSWORD")
-}
-
 
 def get_db_connection():
     try:
